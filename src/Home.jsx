@@ -89,7 +89,7 @@ const pages = [
     color: '#0f172a',
     accent: '#38bdf8',
     image:
-      '/astro/astro_screenshot.jpg',
+      '/astro/future-soldier.webp',
   }
 ]
 
