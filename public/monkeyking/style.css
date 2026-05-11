@@ -17,14 +17,10 @@ body {
 
 .hero {
     position: relative;
-
-    min-height: 120vh;
-
+    min-height: 100vh;
     background: url("page_bg.png");
-
     background-size: cover;
-    background-position: center;
-
+    background-position: center top;
     overflow: hidden;
 }
 
@@ -35,17 +31,11 @@ body {
 
 nav {
     width: 100%;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     padding: 20px 70px;
-
     position: relative;
-
     z-index: 100;
 }
 
@@ -72,29 +62,26 @@ nav {
 
 .socials {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .socials i {
     width: 35px;
     height: 35px;
-
     background: white;
     color: #222;
-
     border-radius: 8px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     cursor: pointer;
-
     transition: 0.3s;
+    font-size: 15px;
 }
 
 .socials i:hover {
     transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
 
@@ -104,21 +91,17 @@ nav {
 
 .hero-content {
     position: absolute;
-
-    top: 45%;
+    top: 42%;
     left: 50%;
-
     transform: translate(-50%, -50%);
-
     width: 100%;
-    max-width: 1300px;
-    padding: 0 40px;
-
+    max-width: 1280px;
+    padding: 0 60px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
+    align-items: flex-start;
     z-index: 10;
+    pointer-events: none;
 }
 
 .title-left {
@@ -130,174 +113,176 @@ nav {
 }
 
 .hero-content p {
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
 }
 
 .hero-content h1 {
     font-family: 'Shojumaru', cursive;
-    font-size: 100px;
+    font-size: 96px;
     font-weight: 400;
     line-height: 1;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero-content h3 {
-    font-size: 22px;
-    font-weight: 500;
-
-    margin-top: 10px;
-    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 12px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
 }
 
 
 
 
-
-/* BUTTON */
+/* ================= MINT BUTTON ================= */
 
 .mint-container {
     position: absolute;
-    top: 52%;
+    /* waist-level of the character */
+    top: 62%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 30;
 }
 
 .mint-btn {
-    width: 250px;
+    width: 260px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: block;
 }
 
 .mint-btn:hover {
-    transform: translateY(-5px);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    transform: translateY(-5px) scale(1.03);
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
 }
+
+
+
 
 /* ================= CHARACTER ================= */
 
 .character {
     position: absolute;
-    top: 25;
-    left: 25%;
-    transform: scale(1.5);
-    width: 700px;
-    z-index: 10;
-} 
-
-
-
-/* .character{
-  position:absolute;
-
-  bottom:-120px;
-
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:420px;
-
-  z-index:1;
-} */
-
-
-.curve{
-  position:absolute;
-
-  bottom:-260px;
-
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:160%;
-
-  height:500px;
-
-  background:#221d2d;
-
-  border-radius:50%;
-
-  z-index:15;
+    top:25%;
+    left: 50%;
+    transform: translateX(-50%) scale(1.4);
+    width: 580px;
+    z-index: 20;
+    pointer-events: none;
 }
 
 
 
 
+/* ================= VALLEY WAVE (bottom of hero) ================= */
+
+.wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+    line-height: 0;
+}
+
+.wave-bottom svg {
+    width: 100%;
+    height: 180px;
+    display: block;
+}
 
 
+
+
+/* ================= VISION ================= */
 
 .vision {
     position: relative;
     z-index: 50;
-    padding: 50px 50px;
+    padding: 70px 80px 80px;
     text-align: center;
+    background: #221d2d;
 }
 
 .vision h2 {
     font-family: 'Shojumaru', cursive;
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 400;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     margin-bottom: 30px;
 }
 
 
 
 
-/* LINE */
+/* GOLD DIVIDER LINE */
 
 .line {
     width: 80%;
-    height: 2px;
-
+    height: 1px;
     background: #c9a96d;
-
     margin: 0 auto 60px auto;
-
     position: relative;
 }
 
 .line::before {
     content: "";
-
     position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #c9a96d;
+    border-radius: 50%;
+}
 
+.line::after {
+    content: "";
+    position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%) rotate(45deg);
-
-    width: 14px;
-    height: 14px;
-
+    width: 12px;
+    height: 12px;
     background: #c9a96d;
 }
 
+/* right dot using a wrapper approach — add a span.line-dot in HTML or fake it with box-shadow */
+.line {
+    box-shadow: 390px 0 0 3.5px #c9a96d, -390px 0 0 3.5px #c9a96d;
+}
 
 
 
-/* CONTENT */
+
+/* VISION TEXT COLUMNS */
 
 .vision-content {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 80px;
-
     text-align: left;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .vision-content p {
-    color: #ddd;
-
-    line-height: 1.8;
-
+    color: #ccc;
+    line-height: 1.9;
     font-size: 15px;
+}
+
+.vision-content p strong {
+    color: white;
+    font-weight: 600;
 }
 
 
@@ -305,34 +290,40 @@ nav {
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1100px) {
-
+@media (max-width: 1200px) {
     .hero-content h1 {
-        font-size: 65px;
+        font-size: 72px;
     }
 
     .character {
-        width: 330px;
+        width: 360px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hero-content h1 {
+        font-size: 56px;
     }
 
     nav {
         padding: 20px 30px;
     }
 
+    .character {
+        width: 300px;
+    }
 }
 
-
-
-@media(max-width:900px) {
-
+@media (max-width: 900px) {
     .nav-links {
         display: none;
     }
 
     .hero-content {
         flex-direction: column;
-        gap: 40px;
-        top: 40%;
+        align-items: center;
+        gap: 20px;
+        top: 38%;
     }
 
     .title-left,
@@ -341,41 +332,42 @@ nav {
     }
 
     .hero-content h1 {
-        font-size: 50px;
-    }
-
-    .hero-content h3 {
-        font-size: 22px;
+        font-size: 48px;
     }
 
     .vision-content {
         grid-template-columns: 1fr;
-    }
-
-}
-
-
-
-@media(max-width:600px) {
-
-    .hero-content h1 {
-        font-size: 38px;
-    }
-
-    .hero-content h3 {
-        font-size: 18px;
-    }
-
-    .hero-content .mint-btn {
-        width: 180px;
-    }
-
-    .character {
-        width: 270px;
+        gap: 40px;
     }
 
     .vision {
-        padding: 80px 30px;
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 36px;
     }
 
+    .hero-content p,
+    .hero-content h3 {
+        font-size: 15px;
+    }
+
+    .mint-btn {
+        width: 200px;
+    }
+
+    .character {
+        width: 240px;
+    }
+
+    .vision {
+        padding: 50px 24px;
+    }
+
+    .vision h2 {
+        font-size: 36px;
+    }
 }

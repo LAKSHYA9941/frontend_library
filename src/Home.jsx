@@ -80,6 +80,16 @@ const pages = [
     accent: '#4a00e0',
     image:
       '/monkeyking/monkey.png',
+  },
+  {
+    title: 'Astro Studio',
+    subtitle: 'Space-themed Game Studio',
+    tag: 'Game UI',
+    link: '/astro/',
+    color: '#0f172a',
+    accent: '#38bdf8',
+    image:
+      '/astro/astro_screenshot.jpg',
   }
 ]
 

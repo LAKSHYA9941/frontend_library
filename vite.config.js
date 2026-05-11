@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Static page folders that live in /public and should be served as-is
-const staticPages = ['/pikachu', '/insect', '/jacket', '/loomeshop', '/pokedex', '/scalex','/skullwire','/monkeyking']
+const staticPages = ['/pikachu', '/insect', '/jacket', '/loomeshop', '/pokedex', '/scalex','/skullwire','/monkeyking', '/astro']
 
 export default defineConfig({
   plugins: [
