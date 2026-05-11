@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokédex – Explorer</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    
+    <!-- REPLACE: pokemon-logo.png with your logo -->
+    <img src="pokemon-logo.png" alt="Pokémon" class="header-logo"/>
+  </header>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="6.5" cy="6.5" r="5" stroke="#999" stroke-width="1.6"/>
+        <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#999" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <input type="text" placeholder="Search for a Pokémon..."/>
+    </div>
+    <div class="filter-wrap">
+      <button class="filter-btn">
+        Filter by types (1)
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="sort-btn icon-btn" aria-label="Sort">
+        <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
+          <line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="0" y1="7" x2="11" y2="7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="0" y1="13" x2="6" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="card-grid">
+
+    <!-- Card 1: Meowscarada -->
+    <div class="poke-card" data-type="grass">
+      <div class="card-top">
+        <span class="card-num">#0908</span>
+        <button class="heart-btn">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none">
+            <path d="M8 13.5S1 9.5 1 5a4 4 0 0 1 7-2.65A4 4 0 0 1 15 5c0 4.5-7 8.5-7 8.5z" stroke="#bbb" stroke-width="1.4"/>
+          </svg>
+        </button>
+      </div>
+      <!-- Type icon -->
+      <div class="type-icon grass">🌿</div>
+      <!-- REPLACE: meowscarada.png -->
+      <div class="card-img-wrap grass-bg">
+        <img src="Meowscarada.png" alt="Meowscarada" class="poke-img"/>
+      </div>
+      <div class="card-info">
+        <h3 class="poke-name">Meowscarada</h3>
+        <div class="card-footer">
+          <span class="type-chip grass-chip">🌿 GRASS</span>
+          <button class="arrow-btn">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Pawniard -->
+    <div class="poke-card" data-type="dark">
+      <div class="card-top">
+        <span class="card-num">#0624</span>
+        <button class="heart-btn">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none"><path d="M8 13.5S1 9.5 1 5a4 4 0 0 1 7-2.65A4 4 0 0 1 15 5c0 4.5-7 8.5-7 8.5z" stroke="#bbb" stroke-width="1.4"/></svg>
+        </button>
+      </div>
+      <div class="type-icon dark">⚙️</div>
+      <!-- REPLACE: pawniard.png -->
+      <div class="card-img-wrap dark-bg">
+        <img src="pawniard.png" alt="Pawniard" class="poke-img"/>
+      </div>
+      <div class="card-info">
+        <h3 class="poke-name">Pawniard</h3>
+        <div class="card-footer">
+          <span class="type-chip dark-chip">⚙️ DARK / STEEL</span>
+          <button class="arrow-btn">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Houndoom -->
+    <div class="poke-card" data-type="fire">
+      <div class="card-top">
+        <span class="card-num">#0229</span>
+        <button class="heart-btn">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none"><path d="M8 13.5S1 9.5 1 5a4 4 0 0 1 7-2.65A4 4 0 0 1 15 5c0 4.5-7 8.5-7 8.5z" stroke="#bbb" stroke-width="1.4"/></svg>
+        </button>
+      </div>
+      <div class="type-icon fire">🔥</div>
+      <!-- REPLACE: houndoom.png -->
+      <div class="card-img-wrap fire-bg">
+        <img src="houndoom.png" alt="Houndoom" class="poke-img"/>
+      </div>
+      <div class="card-info">
+        <h3 class="poke-name">Houndoom</h3>
+        <div class="card-footer">
+          <span class="type-chip fire-chip">🔥 DARK / FIRE</span>
+          <button class="arrow-btn">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Inkay -->
+    <div class="poke-card" data-type="psychic">
+      <div class="card-top">
+        <span class="card-num">#0686</span>
+        <button class="heart-btn">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none"><path d="M8 13.5S1 9.5 1 5a4 4 0 0 1 7-2.65A4 4 0 0 1 15 5c0 4.5-7 8.5-7 8.5z" stroke="#bbb" stroke-width="1.4"/></svg>
+        </button>
+      </div>
+      <div class="type-icon psychic">💧</div>
+      <!-- REPLACE: inkay.png -->
+      <div class="card-img-wrap psychic-bg">
+        <img src="inkay.png" alt="Inkay" class="poke-img"/>
+      </div>
+      <div class="card-info">
+        <h3 class="poke-name">Inkay</h3>
+        <div class="card-footer">
+          <span class="type-chip psychic-chip">💧 DARK / PSYCHIC</span>
+          <button class="arrow-btn">→</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /card-grid -->
+
+  <!-- BOTTOM FEATURES -->
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon blue"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.6"/><line x1="10" y1="2" x2="10" y2="18" stroke="white" stroke-width="1.6"/><ellipse cx="10" cy="10" rx="4" ry="8" stroke="white" stroke-width="1.6"/></svg></div>
+      <div class="feat-text"><strong>Explore</strong><p>Discover all your favorite Pokémon</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon green">🌿</div>
+      <div class="feat-text"><strong>Filter</strong><p>Find Pokémon by types and abilities</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon yellow">⭐</div>
+      <div class="feat-text"><strong>Collection</strong><p>Save and manage your collection</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon purple">👤</div>
+      <div class="feat-text"><strong>Stats</strong><p>View stats and learn about Pokémon</p></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>◎</span>
+    <p>© 2024 Pokémon. All rights reserved.</p>
+  </footer>
+
+</div>
+</body>
+</html>

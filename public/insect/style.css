@@ -1,0 +1,184 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    overflow:hidden;
+}
+
+.wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:100vh;
+}
+
+/* LEFT */
+
+.left{
+    background:#f4f4f2;
+    padding:40px 60px;
+    position:relative;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:20px;
+    color:#0d2017;
+}
+
+.search{
+    width:200px;
+    height:56px;
+    background:#e8e8e8;
+    border-radius:40px;
+    padding:0 25px;
+    border:none;
+    outline:none;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.classification-title{
+    position:absolute;
+    left:20px;
+    top:90dvh;
+    transform:translateY(-50%) rotate(-90deg);
+    transform-origin:left top;
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;
+    color:#173126;
+}
+
+.list{
+    margin-left:140px;
+}
+
+.item{
+    padding:20px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.item h3{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.item p{
+    font-size:24px;
+    color:#555;
+}
+
+/* CENTER BUG */
+
+.bug{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:5;
+}
+
+.bug img{
+    width:420px;
+}
+
+/* RIGHT */
+
+.right{
+    background:#b93526;
+    padding-left:150px;
+    padding-right:60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:white;
+    position:relative;
+}
+
+.nav{
+    display:flex;
+    gap:60px;
+    justify-content:flex-end;
+    margin-bottom:30px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+}
+
+.title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:64px;
+    line-height:0.95;
+    margin-bottom:40px;
+}
+
+.info-grid{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    margin-bottom:50px;
+    justify-content: left;
+    margin: auto 0;
+}
+
+.info-box{
+
+    font-size:22px;
+    line-height:1.8;
+}
+
+.price{
+    font-size:54px;
+    font-weight:700;
+    margin-bottom:40px;
+    color:#ffd9aa;
+}
+
+.toggle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.switch{
+    width:56px;
+    height:30px;
+    background:white;
+    border-radius:50px;
+}
+
+.btn{
+    margin-top:35px;
+    border:none;
+    background:#e3c79d;
+    color:#40271d;
+    padding:12px 32px;
+    border-radius:14px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+@media(max-width:1200px){
+
+    .wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .bug{
+        display:none;
+    }
+
+    body{
+        overflow:auto;
+    }
+}
