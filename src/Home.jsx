@@ -61,11 +61,31 @@ const pages = [
     image:
       'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop',
   },
+  {
+    title: 'Skull Wire',
+    subtitle: 'Art Work',
+    tag: 'Art',
+    link: '/skullwire/',
+    color: '#f9a8d4',
+    accent: '#2d0a1a',
+    image:
+      '/skullwire/uiimg.jpg',
+  },
+  {
+    title: 'Shinsei Village',
+    subtitle: 'NFT Collection',
+    tag: 'Crypto',
+    link: '/monkeyking/',
+    color: '#8e2de2',
+    accent: '#4a00e0',
+    image:
+      '/monkeyking/monkey.png',
+  }
 ]
 
 export default function Home() {
   return (
-    <div className="showcase-root">
+    <div className="showcase-root"> 
 
       {/* HERO */}
       <header className="hero">

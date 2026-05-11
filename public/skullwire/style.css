@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #6b0f5b, transparent 30%),
+        radial-gradient(circle at bottom right, #4c0b8f, transparent 30%),
+        #070014;
+    color: white;
+    padding: 40px;
+}
+
+.gallery {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.heading h2 {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.heading a {
+    color: #ff6b9d;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    border-radius: 16px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.card-info h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.heading h2 {
+    font-size: 32px;
+}
+
+.heading a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 18px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(167, 91, 255, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border: 2px solid #b15cff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgb(255, 255, 255);
+    color: #070014;
+    font-weight: 400;
+    box-shadow: 0 0 20px rgba(255, 92, 222, 0.6);
+}

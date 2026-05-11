@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Gallery UI</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <section class="gallery">
+
+        <div class="heading">
+            <h2>Explore Art Work</h2>
+        </div>
+
+        <!-- IMPORTANT -->
+        <div class="card-container"></div>
+
+    </section>
+
+
+
+
+
+    <script>
+
+        const artworks = [
+
+            {
+                title: "Monocular",
+                likes: "54.8k",
+                image: "sk1.jpeg"
+            },
+
+            {
+                title: "Horns Mask",
+                likes: "32.4k",
+                image: "sk2.png"
+            },
+
+            {
+                title: "Light Moon",
+                likes: "86.8k",
+                image: "sk3.png"
+            },
+
+            {
+                title: "Skull Wire",
+                likes: "78.9k",
+                image: "sk4.png"
+            },
+            {
+                title: "Spider-Man",
+                likes: "24.7k",
+                image: "spiderman.jpeg"
+            },
+            {
+                title: "Dead Pool",
+                likes: "88.2k",
+                image: "dedpul.jpeg"
+            },
+            {
+                title: "Itachi Uchiha",
+                likes: "125.6k",
+                image: "itachi.jpeg"
+            },
+            {
+                title: "Nobita Nobi",
+                likes: "199.2k",
+                image: "nobita.jpeg"
+            }
+
+        ];
+
+
+
+        const cardContainer =
+            document.querySelector(".card-container");
+
+
+
+        artworks.forEach((art) => {
+
+            cardContainer.innerHTML += `
+
+            <div class="card">
+
+                <img src="${art.image}" alt="${art.title}">
+
+                <div class="card-info">
+
+                    <h3>${art.title}</h3>
+
+                    <span>${art.likes} ♡</span>
+
+                </div>
+
+                <button>Place Bid</button>
+
+            </div>
+
+            `;
+
+        });
+
+    </script>
+
+</body>
+
+</html>
