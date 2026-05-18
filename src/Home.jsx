@@ -9,7 +9,7 @@ const pages = [
     color: '#60a5fa',
     accent: '#1e40af',
     image:
-      '/olive_marketing/image.png',
+      '/olive_marketing/assets/image.png',
   },
   {
     title: 'Portfolio Challenge',
