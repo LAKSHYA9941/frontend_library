@@ -9,7 +9,7 @@ const pages = [
     color: '#60a5fa',
     accent: '#1e40af',
     image:
-      '/olive_marketing/63c6b953a2c1a5706f63bbe1_project-03-thumb.webp',
+      '/olive_marketing/image.png',
   },
   {
     title: 'Portfolio Challenge',
@@ -19,7 +19,7 @@ const pages = [
     color: '#f43f5e',
     accent: '#7f1d1d',
     image:
-      '/portfoliochallenge/profile.png',
+      '/portfoliochallenge/image.png',
   },
   {
     title: 'Pikachu UI',
