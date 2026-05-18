@@ -90,7 +90,27 @@ const pages = [
     accent: '#38bdf8',
     image:
       '/astro/future-soldier.webp',
-  }
+  },
+  {
+    title: 'Olive Marketing',
+    subtitle: 'Digital Marketing Agency',
+    tag: 'Marketing',
+    link: '/olive_marketing/',
+    color: '#60a5fa',
+    accent: '#1e40af',
+    image:
+      '/olive_marketing/63c6b953a2c1a5706f63bbe1_project-03-thumb.webp',
+  },
+  {
+    title: 'Portfolio Challenge',
+    subtitle: 'Personal Portfolio Template',
+    tag: 'Portfolio',
+    link: '/portfoliochallenge/',
+    color: '#f43f5e',
+    accent: '#7f1d1d',
+    image:
+      '/portfoliochallenge/profile.png',
+  },
 ]
 
 export default function Home() {
@@ -99,7 +119,7 @@ export default function Home() {
 
       {/* HERO */}
       <header className="hero">
-        <div className="hero-badge">6 UI Projects</div>
+        <div className="hero-badge">11 UI Projects</div>
         <h1 className="hero-title">
           UI <span className="hero-accent">Showcase</span>
         </h1>
