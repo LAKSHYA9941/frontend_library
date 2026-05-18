@@ -2,6 +2,26 @@ import { Link } from 'react-router-dom'
 
 const pages = [
   {
+    title: 'Olive Marketing',
+    subtitle: 'Digital Marketing Agency',
+    tag: 'Marketing',
+    link: '/olive_marketing/',
+    color: '#60a5fa',
+    accent: '#1e40af',
+    image:
+      '/olive_marketing/63c6b953a2c1a5706f63bbe1_project-03-thumb.webp',
+  },
+  {
+    title: 'Portfolio Challenge',
+    subtitle: 'Personal Portfolio Template',
+    tag: 'Portfolio',
+    link: '/portfoliochallenge/',
+    color: '#f43f5e',
+    accent: '#7f1d1d',
+    image:
+      '/portfoliochallenge/profile.png',
+  },
+  {
     title: 'Pikachu UI',
     subtitle: 'Pokémon Gen I Fan Page',
     tag: 'Pokemon',
@@ -91,31 +111,13 @@ const pages = [
     image:
       '/astro/future-soldier.webp',
   },
-  {
-    title: 'Olive Marketing',
-    subtitle: 'Digital Marketing Agency',
-    tag: 'Marketing',
-    link: '/olive_marketing/',
-    color: '#60a5fa',
-    accent: '#1e40af',
-    image:
-      '/olive_marketing/63c6b953a2c1a5706f63bbe1_project-03-thumb.webp',
-  },
-  {
-    title: 'Portfolio Challenge',
-    subtitle: 'Personal Portfolio Template',
-    tag: 'Portfolio',
-    link: '/portfoliochallenge/',
-    color: '#f43f5e',
-    accent: '#7f1d1d',
-    image:
-      '/portfoliochallenge/profile.png',
-  },
+
+
 ]
 
 export default function Home() {
   return (
-    <div className="showcase-root"> 
+    <div className="showcase-root">
 
       {/* HERO */}
       <header className="hero">
@@ -153,7 +155,7 @@ export default function Home() {
               <div className="card-cta">
                 <span>View Project</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </div>
