@@ -19,8 +19,6 @@ main {
     min-height: 100vh;
     background-color: #FBF9EB;
     padding: 1vw;
-
-
 }
 
 
@@ -32,9 +30,7 @@ main {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Crucial for the mobile dropdown */
     font-family: 'Reckless', serif;
-    /* Ensure you have this font imported */
     padding: 10px 20px;
     border: 1px solid #201C1A;
     border-radius: 0.5rem;
@@ -66,12 +62,10 @@ nav h3 {
     flex: 1;
     justify-content: flex-end;
     margin-right: 1.5rem;
-    /* Space between last link and cart */
 }
 
 .nav-part-2 {
     width: clamp(70px, 8vw, 120px);
-    /* Keeps logo sized perfectly on all screens */
     display: flex;
     justify-content: center;
 }
@@ -88,7 +82,6 @@ nav h3 {
     align-items: center;
 }
 
-/* --- Hamburger Button (Hidden on Desktop) --- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -106,27 +99,22 @@ nav h3 {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- Mobile Layout (900px and below) --- */
 @media (max-width: 900px) {
     .hamburger {
         display: flex;
         order: 1;
-        /* Puts hamburger on the far left */
     }
 
     .nav-part-2 {
         order: 2;
-        /* Puts logo in the middle */
     }
 
     .nav-cart {
         order: 3;
-        /* Puts cart on the far right */
     }
 
     .nav-links {
         display: none;
-        /* Hide links by default */
         width: 100%;
         flex-direction: column;
         text-align: center;
@@ -140,29 +128,8 @@ nav h3 {
         /* Reset desktop margin */
     }
 
-    /* When JavaScript adds the "active" class to the header */
-    .site-header.active .nav-links {
-        display: flex;
-        order: 4;
-        /* Pushes the menu down below the header items */
-    }
-
-    /* Animates the hamburger into an "X" */
-    .site-header.active .hamburger span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-
-    .site-header.active .hamburger span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .site-header.active .hamburger span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
 }
 
-/* Styles moved from inline stylesheet in index.html */
-/* ============ DESIGN TOKENS ============ */
 :root {
     --navy: #2a2857;
     --ink: #201c1a;
@@ -204,7 +171,6 @@ nav h3 {
     --announce-h: 36px;
 }
 
-/* ============ RESET ============ */
 *,
 *::before,
 *::after {
@@ -247,7 +213,6 @@ ul {
     list-style: none;
 }
 
-/* ============ UTILITIES ============ */
 .container {
     width: 100%;
     max-width: 1440px;
@@ -315,33 +280,6 @@ ul {
 
 
 
-
-
-.nav__hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: 4px;
-}
-
-.nav__hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--ink);
-}
-
-@media (max-width: 768px) {
-
-    .nav__left .nav__link,
-    .nav__right .nav__link {
-        display: none;
-    }
-
-    .nav__hamburger {
-        display: flex;
-    }
-}
 
 /* — Hero — */
 .hero {
@@ -430,10 +368,6 @@ ul {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
 }
 
-
-/* ============================================================
-   PAGE 2: TAGLINE + PRODUCT CAROUSEL + ORIGINS
-============================================================ */
 
 
 
@@ -1142,7 +1076,6 @@ ul {
 }
 
 
-/* ============ MOBILE TWEAKS ============ */
 @media (max-width: 560px) {
     .hero__scroll-hint {
         display: none;
@@ -1182,18 +1115,4 @@ nav .nav-part-3 {
     width: 33%;
     align-items: center;
     justify-content: end;
-}
-
-#section-1 {
-    width: 100%;
-    height: 100vh;
-    background-image: url("https://www.twoleavestea.com/cdn/shop/files/AlpineBerry_mobile.webp?v=1774284087&width=1280");
-    background-size: cover;
-    background-position: center;
-}
-
-#section-1 img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
