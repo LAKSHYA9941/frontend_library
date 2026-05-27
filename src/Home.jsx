@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom'
 
 const pages = [
   {
+    title: 'Two-Tea Leaves',
+    subtitle: 'Tea Shop & Blog',
+    tag: 'Food & Drink',
+    link: '/tealeaves/',
+    color: '#fbbf24',
+    accent: '#78350f',
+    image: 'https://www.twoleavestea.com/cdn/shop/files/AlpineBerry.webp',
+  },
+  {
     title: 'Olive Marketing',
     subtitle: 'Digital Marketing Agency',
     tag: 'Marketing',
