@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinTrack Pro</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTrack Pro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="container">
-  <header>
-    <h1 id="greeting">Welcome</h1>
-    <div class="header-buttons">
-      <button id="theme-toggle">Dark Mode</button>
-      <button id="settings-btn">Settings</button> </div>
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <h1 id="greeting">Welcome</h1>
+      <div class="header-buttons">
+        <button id="theme-toggle">Dark Mode</button>
+        <button id="settings-btn">Settings</button>
+      </div>
+    </header>
 
-  <div id="settings-modal" class="hidden modal">
-    <h2>Profile Settings</h2>
-    <input type="text" id="user-name" placeholder="Enter Name">
-    <select id="currency-select">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="GBP">GBP</option>
-      <option value="INR">INR</option>
-      <option value="JPY">JPY</option>
-    </select>
-    <button id="save-settings">Save Profile</button>
-    <button id="reset-data" class="danger">Reset All Data</button>
-  </div>
-
-  <div class="summary">
-    <div class="summary-box">
-      <h3>Balance</h3>
-      <span id="balance">0.00</span>
-    </div>
-    <div class="summary-box">
-      <h3>Income</h3>
-      <span id="income">0.00</span>
-    </div>
-    <div class="summary-box">
-      <h3>Expense</h3>
-      <span id="expense">0.00</span>
-    </div>
-  </div>
-
-  <div class="visualization">
-    <div class="bar income-bar" id="income-bar"></div>
-    <div class="bar expense-bar" id="expense-bar"></div>
-  </div>
-
-  <form id="transaction-form">
-    <input type="text" id="desc" placeholder="Transaction Description" required>
-    <div class="form-row">
-      <input type="number" id="amount" placeholder="Amount" step="0.01" required>
-      <select id="type">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
+    <div id="settings-modal" class="hidden modal">
+      <h2>Profile Settings</h2>
+      <input type="text" id="user-name" placeholder="Enter Name">
+      <select id="currency-select">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="INR">INR</option>
+        <option value="JPY">JPY</option>
       </select>
+      <button id="save-settings">Save Profile</button>
+      <button id="reset-data" class="danger">Reset All Data</button>
     </div>
-    <button type="submit">Add Transaction</button>
-  </form>
 
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="income">Income</button>
-    <button class="filter-btn" data-filter="expense">Expense</button>
+    <div class="summary">
+      <div class="summary-box">
+        <h3>Balance</h3>
+        <span id="balance">0.00</span>
+      </div>
+      <div class="summary-box">
+        <h3>Income</h3>
+        <span id="income">0.00</span>
+      </div>
+      <div class="summary-box">
+        <h3>Expense</h3>
+        <span id="expense">0.00</span>
+      </div>
+    </div>
+
+    <div class="visualization">
+      <div class="bar income-bar" id="income-bar"></div>
+      <div class="bar expense-bar" id="expense-bar"></div>
+    </div>
+
+    <form id="transaction-form">
+      <input type="text" id="desc" placeholder="Transaction Description" required>
+      <div class="form-row">
+        <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      <button type="submit">Add Transaction</button>
+    </form>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="income">Income</button>
+      <button class="filter-btn" data-filter="expense">Expense</button>
+    </div>
+
+    <ul id="transaction-list"></ul>
   </div>
-
-  <ul id="transaction-list"></ul>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
