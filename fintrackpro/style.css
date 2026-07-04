@@ -1,0 +1,179 @@
+:root {
+  --bg: #f4f7f6;
+  --text: #333333;
+  --primary: #2c3e50;
+  --income: #27ae60;
+  --expense: #e74c3c;
+  --card: #ffffff;
+  --border: #e0e0e0;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --primary: #34495e;
+  --income: #2ecc71;
+  --expense: #ff5252;
+  --card: #1e1e1e;
+  --border: #333333;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.danger {
+  background: var(--expense);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  background: var(--bg);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.summary-box {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 0 5px;
+}
+
+.summary-box h3 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+}
+
+.visualization {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.income-bar {
+  background: var(--income);
+  transition: width 0.3s;
+}
+
+.expense-bar {
+  background: var(--expense);
+  transition: width 0.3s;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row input, .form-row select {
+  flex: 1;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  flex: 1;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: var(--bg);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 5px solid var(--primary);
+}
+
+li.income-item {
+  border-left-color: var(--income);
+}
+
+li.expense-item {
+  border-left-color: var(--expense);
+}
