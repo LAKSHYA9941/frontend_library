@@ -1,0 +1,310 @@
+/* ==================================================
+   THEME VARIABLES
+   Everything colored on this page pulls from these
+   variables. Flipping data-theme on <html> swaps
+   every color in the app at once — that's the whole
+   trick behind the light/dark switch.
+================================================== */
+:root {
+  --bg: #0b0b10;
+  --bg-soft: #14141c;
+  --panel: rgba(255,255,255,0.06);
+  --panel-border: rgba(255,255,255,0.12);
+  --text: #f2f2f5;
+  --text-dim: #9a9aa5;
+  --accent: #c8ff4d;      /* acid neon */
+  --accent-2: #ff4dd8;    /* neon pink, used sparingly */
+  --shadow-hard: 6px 6px 0 rgba(200,255,77,0.25);
+  --radius: 14px;
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+html[data-theme="light"] {
+  --bg: #f3f2ec;
+  --bg-soft: #ffffff;
+  --panel: rgba(255,255,255,0.55);
+  --panel-border: rgba(20,20,20,0.12);
+  --text: #14141a;
+  --text-dim: #5c5c66;
+  --accent: #7a8f00;
+  --accent-2: #b8007a;
+  --shadow-hard: 6px 6px 0 rgba(122,143,0,0.18);
+}
+
+/* Time-of-day tints for the dynamic background layer.
+   These are just extra variables the JS switches between. */
+.tint-morning   { --tint: 255,201,102; }
+.tint-afternoon { --tint: 90,170,255; }
+.tint-evening   { --tint: 255,110,90; }
+.tint-night     { --tint: 120,90,255; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* ==================================================
+   DYNAMIC BACKGROUND
+   A soft radial glow whose color shifts with time of
+   day. It lives behind everything (z-index -1).
+================================================== */
+#dynamic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 0%, rgba(var(--tint,120,90,255), 0.18), transparent 60%),
+              radial-gradient(circle at 90% 90%, rgba(var(--tint,120,90,255), 0.10), transparent 55%);
+  transition: background 1.2s ease;
+}
+
+/* ==================================================
+   TOP BAR
+================================================== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 2px solid var(--panel-border);
+}
+
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: 1px; }
+.brand-mark { color: var(--accent); }
+
+.datetime {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+#time-text { color: var(--text); font-weight: 600; }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 2px solid var(--panel-border);
+  border-radius: 999px;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+.toggle-track {
+  width: 34px; height: 18px;
+  background: var(--panel);
+  border-radius: 999px;
+  position: relative;
+  display: inline-block;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.25s ease;
+}
+html[data-theme="light"] .toggle-thumb { transform: translateX(16px); }
+
+/* ==================================================
+   DASHBOARD GRID
+================================================== */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feature-card, .widget-card {
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: left;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  font-family: var(--font-display);
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-card:hover {
+  transform: translate(-3px, -3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hard);
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+.card-title { font-size: 1.15rem; font-weight: 700; }
+.card-sub { font-size: 0.85rem; color: var(--text-dim); }
+
+.weather-widget { cursor: default; }
+.widget-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.weather-body { font-family: var(--font-mono); font-size: 0.95rem; }
+.weather-loading { color: var(--text-dim); }
+.weather-temp { font-size: 1.8rem; font-weight: 700; }
+.weather-detail { color: var(--text-dim); font-size: 0.8rem; margin-top: 4px; }
+
+/* ==================================================
+   FEATURE FULL-SCREEN VIEWS
+   Hidden by default; JS adds/removes ".active"
+================================================== */
+.feature-view {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.feature-view.active { display: block; }
+
+.feature-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.feature-header h2 { margin: 0; letter-spacing: 0.5px; }
+
+.back-btn, .quote-btn, .row-form button, .timer-controls button {
+  background: transparent;
+  border: 2px solid var(--panel-border);
+  color: var(--text);
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.back-btn:hover, .quote-btn:hover, .row-form button:hover, .timer-controls button:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.row-form { display: flex; gap: 10px; margin-bottom: 20px; }
+.row-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--panel-border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+.row-form input:focus { outline: none; border-color: var(--accent); }
+
+.item-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.item-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.item-text { flex: 1; }
+.item-list li.completed .item-text { text-decoration: line-through; color: var(--text-dim); }
+.item-list li.important { border-color: var(--accent-2); }
+.item-list button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1rem;
+}
+.item-list button:hover { color: var(--accent); }
+
+/* Planner */
+.planner-list { display: flex; flex-direction: column; gap: 8px; }
+.planner-row { display: flex; align-items: center; gap: 12px; }
+.planner-hour {
+  width: 78px;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.planner-row input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--panel-border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: var(--font-display);
+}
+.planner-row.current-hour .planner-hour { color: var(--accent); font-weight: 700; }
+.planner-row.current-hour input { border-color: var(--accent); }
+
+/* Goals progress */
+.progress-line {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+/* Pomodoro */
+.pomodoro-body { text-align: center; padding-top: 20px; }
+.session-label {
+  letter-spacing: 3px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+.timer-display {
+  font-size: 5rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-bottom: 24px;
+}
+.timer-controls { display: flex; gap: 12px; justify-content: center; }
+
+/* Quote */
+.quote-body { text-align: center; padding-top: 30px; }
+.quote-text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0 0 14px 0;
+  font-style: normal;
+}
+.quote-author { color: var(--text-dim); margin-bottom: 24px; font-family: var(--font-mono); }
+
+@media (max-width: 640px) {
+  .topbar { flex-wrap: wrap; gap: 10px; padding: 14px; }
+  .dashboard { padding: 18px; }
+  .timer-display { font-size: 3.2rem; }
+}
