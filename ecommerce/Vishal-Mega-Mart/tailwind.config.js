@@ -11,19 +11,19 @@ export default {
         'neon-blue': '#00E5FF',
         lemon: '#F5FF00',
         'lime-green': '#A6FF00',
-        ink: '#0D0D0D',
-        paper: '#FFFFFF'
+        ink: 'var(--color-ink)',
+        paper: 'var(--color-paper)'
       },
       borderWidth: {
         '3': '3px',
         '4': '4px',
       },
       boxShadow: {
-        'brutal': '4px 4px 0px 0px #0D0D0D',
-        'brutal-sm': '2px 2px 0px 0px #0D0D0D',
-        'brutal-lg': '8px 8px 0px 0px #0D0D0D',
-        'brutal-left': '-8px 0px 0px 0px #0D0D0D',
-        'brutal-white': '8px 8px 0px 0px #FFFFFF',
+        'brutal': '4px 4px 0px 0px var(--color-ink)',
+        'brutal-sm': '2px 2px 0px 0px var(--color-ink)',
+        'brutal-lg': '8px 8px 0px 0px var(--color-ink)',
+        'brutal-left': '-8px 0px 0px 0px var(--color-ink)',
+        'brutal-white': '8px 8px 0px 0px var(--color-paper)',
       },
       fontFamily: {
         heading: ['"Archivo Black"', '"Space Grotesk"', 'sans-serif'],
