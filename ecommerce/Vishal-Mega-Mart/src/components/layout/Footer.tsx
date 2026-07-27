@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
           <h2 className="font-heading text-2xl uppercase font-bold tracking-tighter">V-Mart</h2>
           <p className="font-bold uppercase text-sm mt-1">Break the rules. Buy the trends.</p>
         </div>
-        <div className="border-2 border-ink bg-lemon px-4 py-2 shadow-[2px_2px_0px_0px_#0D0D0D]">
+        <div className="border-2 border-ink bg-lemon px-4 py-2 shadow-brutal-sm">
           <p className="font-bold uppercase text-xs tracking-wide text-ink">
             Built with React + Context API + Tailwind
           </p>

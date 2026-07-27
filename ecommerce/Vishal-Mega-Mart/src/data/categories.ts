@@ -1,5 +1,5 @@
 import { products } from './products';
-import { Category } from '../types';
+import type { Category } from '../types';
 
 export interface CategoryInfo {
   name: Category;

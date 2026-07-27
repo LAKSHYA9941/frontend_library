@@ -19,8 +19,11 @@ export default {
         '4': '4px',
       },
       boxShadow: {
-        'brutal': '6px 6px 0px 0px #0D0D0D',
-        'brutal-sm': '3px 3px 0px 0px #0D0D0D',
+        'brutal': '4px 4px 0px 0px #0D0D0D',
+        'brutal-sm': '2px 2px 0px 0px #0D0D0D',
+        'brutal-lg': '8px 8px 0px 0px #0D0D0D',
+        'brutal-left': '-8px 0px 0px 0px #0D0D0D',
+        'brutal-white': '8px 8px 0px 0px #FFFFFF',
       },
       fontFamily: {
         heading: ['"Archivo Black"', '"Space Grotesk"', 'sans-serif'],

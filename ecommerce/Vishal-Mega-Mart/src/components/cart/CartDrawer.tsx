@@ -39,7 +39,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
 
       {/* Drawer */}
       <div 
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-paper border-l-4 border-ink shadow-[-8px_0_0_0_#0D0D0D] z-50 transform transition-transform duration-300 flex flex-col ${
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-paper border-l-4 border-ink shadow-brutal-left z-50 transform transition-transform duration-300 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -48,7 +48,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
           <h2 className="text-2xl font-bold uppercase tracking-tighter">Your Cart</h2>
           <button 
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center border-2 border-ink bg-paper hover:bg-neon-pink hover:text-white transition-colors font-bold shadow-[2px_2px_0px_0px_#0D0D0D]"
+            className="w-8 h-8 flex items-center justify-center border-2 border-ink bg-paper hover:bg-neon-pink hover:text-white transition-colors font-bold shadow-brutal-sm"
           >
             X
           </button>
@@ -135,7 +135,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
             </svg>
           </div>
           <h3 className="text-2xl font-bold uppercase tracking-tighter">You're all set!</h3>
-          <div className="bg-paper border-2 border-ink p-4 text-left shadow-[4px_4px_0px_0px_#0D0D0D]">
+          <div className="bg-paper border-2 border-ink p-4 text-left shadow-brutal">
             <p className="font-bold uppercase tracking-wide text-sm mb-2">
               Order #: <span className="text-neon-blue">VM-{Math.floor(Math.random() * 90000) + 10000}</span>
             </p>

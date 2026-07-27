@@ -1,13 +1,28 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh]">
-      <h1 className="text-9xl bg-neon-pink text-paper border-4 border-ink p-4 shadow-brutal transform rotate-2">404</h1>
-      <p className="text-3xl font-bold mt-8 mb-8 bg-lemon p-2 border-2 border-ink">Page Not Found</p>
-      <Link to="/" className="border-4 border-ink p-4 text-2xl font-bold hover:bg-ink hover:text-paper shadow-brutal-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
-        Go Back Home
-      </Link>
+    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center p-4">
+      <div className="bg-neon-pink text-ink border-4 border-ink p-12 shadow-brutal-lg max-w-2xl w-full">
+        <h1 className="text-8xl md:text-9xl font-bold uppercase tracking-tighter mb-6">
+          404
+        </h1>
+        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wide mb-6">
+          Page Not Found
+        </h2>
+        <p className="font-bold text-lg mb-8 max-w-md mx-auto">
+          You wandered off the map. This page doesn't exist or has been moved.
+        </p>
+        <Button variant="primary" onClick={() => navigate('/home')} className="!text-lg !px-8">
+          Go Back Home
+        </Button>
+      </div>
     </div>
   );
-}
+};
+
+export default NotFound;

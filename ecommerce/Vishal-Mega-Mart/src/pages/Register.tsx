@@ -31,8 +31,8 @@ const Register: React.FC = () => {
     try {
       await register(name, email, password);
       navigate('/home');
-    } catch (err: any) {
-      setErrors({ form: err.message || 'Registration failed' });
+    } catch (err) {
+      setErrors({ form: err instanceof Error ? err.message : 'Registration failed' });
     }
   };
 

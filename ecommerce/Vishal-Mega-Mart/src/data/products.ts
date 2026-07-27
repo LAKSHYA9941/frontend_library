@@ -1,4 +1,4 @@
-import { Product, Category } from '../types';
+import type { Product, Category } from '../types';
 
 const generateProducts = (): Product[] => {
   const categories: Category[] = ['Electronics', 'Clothing', 'Furniture', 'Home', 'Sports', 'Accessories'];

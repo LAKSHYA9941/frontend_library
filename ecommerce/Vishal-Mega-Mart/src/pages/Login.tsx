@@ -19,7 +19,7 @@ const Login: React.FC = () => {
     try {
       await login(email, password);
       navigate('/home');
-    } catch (err: any) {
+    } catch (err) {
       setError('Invalid email or password');
     }
   };
@@ -32,15 +32,15 @@ const Login: React.FC = () => {
           Hustle Hard.<br />Dress Loud.
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <Card className="bg-neon-blue !text-ink border-paper hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#FFFFFF] transition-all">
+          <Card className="bg-neon-blue !text-ink border-paper hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-white transition-all">
             <h3 className="text-4xl font-bold mb-2">1,000+</h3>
             <p className="uppercase font-bold tracking-wide">Products</p>
           </Card>
-          <Card className="bg-lemon !text-ink border-paper hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#FFFFFF] transition-all">
+          <Card className="bg-lemon !text-ink border-paper hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-white transition-all">
             <h3 className="text-4xl font-bold mb-2">50K</h3>
             <p className="uppercase font-bold tracking-wide">Users</p>
           </Card>
-          <Card className="bg-lime-green !text-ink border-paper sm:col-span-2 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#FFFFFF] transition-all">
+          <Card className="bg-lime-green !text-ink border-paper sm:col-span-2 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-white transition-all">
             <h3 className="text-4xl font-bold mb-2">4.9 / 5</h3>
             <p className="uppercase font-bold tracking-wide">Average Rating</p>
           </Card>

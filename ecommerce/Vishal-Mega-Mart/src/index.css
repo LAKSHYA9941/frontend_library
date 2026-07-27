@@ -14,4 +14,8 @@
   * {
     @apply rounded-none;
   }
+  *:focus-visible {
+    outline: 4px solid #0D0D0D !important;
+    outline-offset: 4px !important;
+  }
 }

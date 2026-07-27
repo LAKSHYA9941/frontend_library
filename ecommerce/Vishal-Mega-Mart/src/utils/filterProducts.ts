@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import type { Product } from '../types';
 
 export type SortOption = 'Featured' | 'Price: Low to High' | 'Price: High to Low' | 'Rating';
 

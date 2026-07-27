@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({
   };
   
   const hoverStyles = hoverEffect 
-    ? "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#0D0D0D]"
+    ? "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-lg"
     : "";
 
   return (

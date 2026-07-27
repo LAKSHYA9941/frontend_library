@@ -7,7 +7,6 @@ import Register from './pages/Register';
 import Shop from './pages/Shop';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
-import UiPreview from './pages/UiPreview';
 // Layout components
 import MainLayout from './components/layout/MainLayout';
 
@@ -27,8 +26,6 @@ function App() {
       />
       
       {/* Dev Route */}
-      <Route path="/ui-preview" element={<UiPreview />} />
-
       {/* Protected Routes inside MainLayout */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Navigate to="/home" replace />} />

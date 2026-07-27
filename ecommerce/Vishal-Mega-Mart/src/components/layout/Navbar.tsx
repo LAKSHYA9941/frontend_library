@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-40 bg-paper border-b-4 border-ink flex items-center justify-between px-6 py-4">
       {/* Left: Logo */}
       <Link to="/home" className="flex items-center gap-2 group">
-        <div className="w-8 h-8 bg-neon-blue border-2 border-ink flex items-center justify-center transform group-hover:-rotate-12 transition-transform shadow-[2px_2px_0px_0px_#0D0D0D]">
+        <div className="w-8 h-8 bg-neon-blue border-2 border-ink flex items-center justify-center transform group-hover:-rotate-12 transition-transform shadow-brutal-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
@@ -60,14 +60,14 @@ const Navbar: React.FC = () => {
       {/* Right: User / Cart / Logout */}
       <div className="flex items-center gap-4">
         {/* User Avatar */}
-        <div className={`w-10 h-10 border-2 border-ink ${colorClass} flex items-center justify-center font-bold text-ink shadow-[2px_2px_0px_0px_#0D0D0D] uppercase`}>
+        <div className={`w-10 h-10 border-2 border-ink ${colorClass} flex items-center justify-center font-bold text-ink shadow-brutal-sm uppercase`}>
           {userInitial}
         </div>
 
         {/* Cart Button */}
         <button 
           onClick={() => setIsCartOpen(true)}
-          className="relative w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#0D0D0D] transition-all"
+          className="relative w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-brutal transition-all"
           aria-label="Cart"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
             <circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
-          <span className="absolute -top-2 -right-2 bg-neon-pink border-2 border-ink text-ink text-xs font-bold w-5 h-5 flex items-center justify-center rounded-none shadow-[2px_2px_0px_0px_#0D0D0D]">
+          <span className="absolute -top-2 -right-2 bg-neon-pink border-2 border-ink text-ink text-xs font-bold w-5 h-5 flex items-center justify-center rounded-none shadow-brutal-sm">
             {cartCount}
           </span>
         </button>
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
         {/* Logout Button */}
         <button 
           onClick={handleLogout}
-          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#0D0D0D] hover:bg-neon-pink group transition-all"
+          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-brutal hover:bg-neon-pink group transition-all"
           aria-label="Logout"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink group-hover:text-paper">

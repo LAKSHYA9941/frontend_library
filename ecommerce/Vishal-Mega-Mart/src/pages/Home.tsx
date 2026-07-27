@@ -4,11 +4,10 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-import { Badge } from '../components/ui/Badge';
 import { getGreeting } from '../utils/greeting';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
-import { Product } from '../types';
+import type { Product } from '../types';
 
 const Home: React.FC = () => {
   const { user } = useAuth();
@@ -33,7 +32,7 @@ const Home: React.FC = () => {
       {/* 1. Welcome Hero Banner */}
       <section className="flex flex-col lg:flex-row gap-8 items-stretch">
         {/* Left: Text & Buttons */}
-        <div className="flex-1 bg-ink text-paper p-8 md:p-12 border-4 border-ink shadow-[8px_8px_0px_0px_#0D0D0D] flex flex-col justify-center">
+        <div className="flex-1 bg-ink text-paper p-8 md:p-12 border-4 border-ink shadow-brutal-lg flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl font-bold uppercase mb-4 tracking-tighter">
             Good {greeting},<br />
             <span className="text-neon-blue">{userName}!</span>
@@ -53,11 +52,11 @@ const Home: React.FC = () => {
 
         {/* Right: Stat Cards */}
         <div className="w-full lg:w-1/3 flex flex-col gap-6">
-          <Card className="bg-lemon flex-1 flex flex-col justify-center shadow-[6px_6px_0px_0px_#0D0D0D]">
+          <Card className="bg-lemon flex-1 flex flex-col justify-center shadow-brutal">
             <h3 className="text-5xl font-bold mb-2 tracking-tighter">{products.length}</h3>
             <p className="text-xl font-bold uppercase tracking-wide">Products Available</p>
           </Card>
-          <Card className="bg-lime-green flex-1 flex flex-col justify-center shadow-[6px_6px_0px_0px_#0D0D0D]">
+          <Card className="bg-lime-green flex-1 flex flex-col justify-center shadow-brutal">
             <h3 className="text-5xl font-bold mb-2 tracking-tighter">$50</h3>
             <p className="text-xl font-bold uppercase tracking-wide">Free Delivery Threshold</p>
           </Card>
@@ -93,7 +92,7 @@ const Home: React.FC = () => {
           {categories.map((cat, index) => (
             <div 
               key={cat.name}
-              className={`border-4 border-ink p-6 shadow-brutal flex items-center justify-between cursor-pointer hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#0D0D0D] transition-all ${accentColors[index % accentColors.length]}`}
+              className={`border-4 border-ink p-6 shadow-brutal flex items-center justify-between cursor-pointer hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-lg transition-all ${accentColors[index % accentColors.length]}`}
               onClick={() => navigate('/shop')}
             >
               <div>

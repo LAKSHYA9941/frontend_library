@@ -15,10 +15,10 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = "uppercase font-bold tracking-wide border-3 border-ink px-6 py-3 transition-all duration-200";
   
   const variantStyles = {
-    primary: "bg-lemon text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0px_0px_#0D0D0D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    secondary: "bg-neon-blue text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0px_0px_#0D0D0D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    outline: "bg-transparent text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0px_0px_#0D0D0D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    danger: "bg-neon-pink text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0px_0px_#0D0D0D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+    primary: "bg-lemon text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+    secondary: "bg-neon-blue text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+    outline: "bg-transparent text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+    danger: "bg-neon-pink text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
   };
 
   return (

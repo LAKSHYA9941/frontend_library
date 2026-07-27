@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useReducer, useEffect, ReactNode, useMemo } from 'react';
-import { Product, CartItem } from '../types';
+import { createContext, useContext, useReducer, useEffect, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import type { Product, CartItem } from '../types';
 
 interface CartState {
   items: CartItem[];
@@ -83,11 +84,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const updateQuantity = (id: string, quantity: number) => dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
   const clearCart = () => dispatch({ type: 'CLEAR_CART' });
 
-  const cartCount = useMemo(() => state.items.reduce((acc, item) => acc + item.quantity, 0), [state.items]);
-  const cartTotal = useMemo(() => state.items.reduce((acc, item) => acc + (item.product.price * item.quantity), 0), [state.items]);
+  const cartCount = useMemo(() => state.items.reduce((acc: number, item: CartItem) => acc + item.quantity, 0), [state.items]);
+  const cartTotal = useMemo(() => state.items.reduce((acc: number, item: CartItem) => acc + (item.product.price * item.quantity), 0), [state.items]);
+
+  const contextValue = useMemo(() => ({
+    ...state,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    cartCount,
+    cartTotal
+  }), [state, cartCount, cartTotal]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeFromCart, updateQuantity, clearCart, cartCount, cartTotal }}>
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );

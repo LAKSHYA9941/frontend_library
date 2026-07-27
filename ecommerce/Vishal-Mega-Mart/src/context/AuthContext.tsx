@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import { createContext, useContext, useReducer, useMemo } from 'react';
+import type { ReactNode } from 'react';
 
 type User = {
   name: string;
@@ -92,8 +93,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: 'LOGOUT' });
   };
 
+  const contextValue = useMemo(() => ({
+    ...state,
+    login,
+    register,
+    logout
+  }), [state]);
+
   return (
-    <AuthContext.Provider value={{ ...state, login, register, logout }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );

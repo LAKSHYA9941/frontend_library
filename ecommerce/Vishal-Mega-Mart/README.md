@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# V-Mart: Neo-Brutalist eCommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+V-Mart is an eCommerce application built with a strict Neo-Brutalism design system. It avoids soft drop shadows, rounded corners, and gradients in favor of high-contrast solid colors, bold typography, hard outlines, and raw aesthetic appeal.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **React 18**
+- **TypeScript** (Strict mode)
+- **Vite** (Build tool & dev server)
+- **Tailwind CSS** (Styling & Design Tokens)
+- **React Router v6** (Client-side routing)
+- **Context API** (State management, no Redux or external state libs)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Folder Structure
+- `src/components/ui/` - Reusable, atomic components styled with strict brutalist rules (Button, Input, Card, Modal, Badge).
+- `src/components/layout/` - Global layout components (Navbar, Footer, MainLayout).
+- `src/components/cart/` - Cart drawer logic and UI.
+- `src/components/shop/` - Sub-components specifically for the Shop page.
+- `src/context/` - React Context providers (`AuthContext`, `CartContext`) handling global state and `localStorage` persistence.
+- `src/data/` - Mock data arrays for products and categories.
+- `src/pages/` - Full page components mapping directly to routes.
+- `src/hooks/` - Custom React hooks (e.g., `useDebounce`).
+- `src/utils/` - Pure function utilities (e.g., product filtering, time-based greetings).
+- `src/types/` - TypeScript interface definitions.
 
-## React Compiler
+## Design Philosophy
+- **Colors**: Strictly uses design tokens defined in `tailwind.config.js` (`ink`, `paper`, `neon-pink`, `neon-blue`, `lemon`, `lime-green`).
+- **Borders**: Thick, hard borders (`border-4 border-ink`).
+- **Shadows**: Hard, solid-color drop shadows mimicking isometric depth (`shadow-brutal`, `shadow-brutal-lg`).
+- **Typography**: Uppercase, bold fonts for headings and key interactive elements.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup Instructions
 
-## Expanding the Oxlint configuration
+1. **Install Dependencies**
+   Ensure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open your browser to `http://localhost:5173`.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
