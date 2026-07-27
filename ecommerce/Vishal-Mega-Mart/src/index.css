@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-paper text-ink m-0 p-0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase;
+  }
+  * {
+    @apply rounded-none;
+  }
+}
