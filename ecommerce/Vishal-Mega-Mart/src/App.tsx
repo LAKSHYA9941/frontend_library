@@ -6,7 +6,6 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Shop from './pages/Shop';
 import About from './pages/About';
-import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
 import UiPreview from './pages/UiPreview';
 // Layout components
@@ -36,7 +35,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
       </Route>
 
       {/* 404 */}

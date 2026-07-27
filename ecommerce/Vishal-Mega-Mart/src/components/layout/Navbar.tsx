@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
+import { CartDrawer } from '../cart/CartDrawer';
 
 const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
   const { cartCount } = useCart();
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,6 +20,7 @@ const Navbar: React.FC = () => {
   const colorClass = colors[(user?.name.length || 0) % colors.length];
 
   return (
+    <>
     <header className="sticky top-0 z-40 bg-paper border-b-4 border-ink flex items-center justify-between px-6 py-4">
       {/* Left: Logo */}
       <Link to="/home" className="flex items-center gap-2 group">
@@ -62,8 +65,8 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Cart Button */}
-        <Link 
-          to="/cart" 
+        <button 
+          onClick={() => setIsCartOpen(true)}
           className="relative w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#0D0D0D] transition-all"
           aria-label="Cart"
         >
@@ -75,7 +78,7 @@ const Navbar: React.FC = () => {
           <span className="absolute -top-2 -right-2 bg-neon-pink border-2 border-ink text-ink text-xs font-bold w-5 h-5 flex items-center justify-center rounded-none shadow-[2px_2px_0px_0px_#0D0D0D]">
             {cartCount}
           </span>
-        </Link>
+        </button>
 
         {/* Logout Button */}
         <button 
@@ -91,6 +94,8 @@ const Navbar: React.FC = () => {
         </button>
       </div>
     </header>
+    <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+    </>
   );
 };
 
