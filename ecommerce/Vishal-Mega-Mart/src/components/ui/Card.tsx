@@ -12,14 +12,14 @@ export const Card: React.FC<CardProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "border-4 border-ink shadow-brutal p-6";
+  const baseStyles = "border-2 border-ink shadow-brutal p-6 transition-colors";
   const variantStyles = {
     light: "bg-paper text-ink",
     dark: "bg-ink text-paper",
   };
   
   const hoverStyles = hoverEffect 
-    ? "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-lg"
+    ? "transition-all duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg"
     : "";
 
   return (

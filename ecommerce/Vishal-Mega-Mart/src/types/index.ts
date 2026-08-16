@@ -1,14 +1,22 @@
-export type Category = 'Electronics' | 'Clothing' | 'Furniture' | 'Home' | 'Sports' | 'Accessories';
 
 export interface Product {
   id: string;
   name: string;
-  category: Category;
+
   price: number;
   rating: number;
   reviewCount: number;
   image: string;
+  images: string[];
   description: string;
+  stock: number;
+  brand?: string;
+  reviews?: {
+    rating: number;
+    comment: string;
+    date: string;
+    reviewerName: string;
+  }[];
 }
 
 export interface CartItem {

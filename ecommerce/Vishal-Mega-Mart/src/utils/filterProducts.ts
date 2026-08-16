@@ -5,17 +5,11 @@ export type SortOption = 'Featured' | 'Price: Low to High' | 'Price: High to Low
 export const filterAndSortProducts = (
   products: Product[],
   searchQuery: string,
-  category: string,
   sortBy: SortOption
 ): Product[] => {
   let filtered = [...products];
 
-  // 1. Filter by category
-  if (category && category !== 'All Categories') {
-    filtered = filtered.filter((p) => p.category === category);
-  }
-
-  // 2. Filter by search query
+  // 1. Filter by search query
   if (searchQuery.trim()) {
     const lowerQuery = searchQuery.toLowerCase();
     filtered = filtered.filter((p) => 

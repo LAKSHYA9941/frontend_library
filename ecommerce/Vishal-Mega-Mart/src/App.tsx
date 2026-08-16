@@ -1,17 +1,19 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext';
+import { useSelector } from 'react-redux';
+import type { RootState } from './app/store';
 // Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Shop from './pages/Shop';
+import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
 // Layout components
 import MainLayout from './components/layout/MainLayout';
 
 function App() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   return (
     <Routes>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />
       </Route>
 

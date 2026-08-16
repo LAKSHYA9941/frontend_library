@@ -1,37 +1,39 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState, AppDispatch } from '../../app/store';
+import { logout } from '../../features/authSlice';
 import { useCart } from '../../context/CartContext';
 import { useTheme } from '../../context/ThemeContext';
 import { CartDrawer } from '../cart/CartDrawer';
+import { motion } from 'framer-motion';
 
 const Navbar: React.FC = () => {
-  const { user, logout } = useAuth();
+  const { user } = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch<AppDispatch>();
   const { cartCount } = useCart();
   const { theme, toggleTheme } = useTheme();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    dispatch(logout());
     navigate('/login');
   };
 
-  const colors = ['bg-neon-pink', 'bg-neon-blue', 'bg-lemon', 'bg-lime-green'];
   const userInitial = user?.name ? user.name.charAt(0).toUpperCase() : 'U';
-  const colorClass = colors[(user?.name.length || 0) % colors.length];
 
   return (
     <>
-    <header className="sticky top-0 z-40 bg-paper border-b-4 border-ink flex items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md border-b-2 border-ink flex items-center justify-between px-6 py-4 transition-colors">
       {/* Left: Logo */}
-      <Link to="/home" className="flex items-center gap-2 group">
-        <div className="w-8 h-8 bg-neon-blue border-2 border-ink flex items-center justify-center transform group-hover:-rotate-12 transition-transform shadow-brutal-sm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
+      <Link to="/home" className="flex items-center gap-3 group">
+        <div className="w-8 h-8 bg-ink flex items-center justify-center transform group-hover:rotate-180 transition-transform duration-500">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-paper">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
         </div>
-        <span className="font-heading text-2xl uppercase font-bold tracking-tighter">
+        <span className="font-heading text-2xl uppercase font-bold tracking-tight text-ink">
           V-Mart
         </span>
       </Link>
@@ -47,14 +49,17 @@ const Navbar: React.FC = () => {
             key={link.name}
             to={link.path}
             className={({ isActive }) => 
-              `font-bold uppercase tracking-wide px-2 py-1 transition-all ${
-                isActive 
-                  ? 'border-b-4 border-lemon' 
-                  : 'border-b-4 border-transparent hover:border-ink'
+              `font-medium uppercase tracking-widest text-sm px-1 py-1 transition-all relative group ${
+                isActive ? 'text-ink font-bold' : 'text-ink/60 hover:text-ink'
               }`
             }
           >
-            {link.name}
+            {({ isActive }) => (
+              <>
+                {link.name}
+                <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-ink transform origin-left transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              </>
+            )}
           </NavLink>
         ))}
       </nav>
@@ -62,18 +67,19 @@ const Navbar: React.FC = () => {
       {/* Right: User / Cart / Logout */}
       <div className="flex items-center gap-4">
         {/* User Avatar */}
-        <div className={`w-10 h-10 border-2 border-ink ${colorClass} flex items-center justify-center font-bold text-ink shadow-brutal-sm uppercase`}>
+        <div className="w-10 h-10 border-2 border-ink bg-gray-100 dark:bg-gray-800 flex items-center justify-center font-bold text-ink uppercase text-sm">
           {userInitial}
         </div>
 
         {/* Theme Toggle Button */}
-        <button 
+        <motion.button 
+          whileTap={{ scale: 0.95 }}
           onClick={toggleTheme}
-          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-brutal hover:bg-lemon transition-all"
+          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors"
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -85,40 +91,44 @@ const Navbar: React.FC = () => {
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
           ) : (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           )}
-        </button>
+        </motion.button>
 
         {/* Cart Button */}
-        <button 
+        <motion.button 
+          whileTap={{ scale: 0.95 }}
           onClick={() => setIsCartOpen(true)}
-          className="relative w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-brutal transition-all"
+          className="relative w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:bg-ink hover:text-paper transition-colors"
           aria-label="Cart"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
-          <span className="absolute -top-2 -right-2 bg-neon-pink border-2 border-ink text-ink text-xs font-bold w-5 h-5 flex items-center justify-center rounded-none shadow-brutal-sm">
-            {cartCount}
-          </span>
-        </button>
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-ink border-2 border-paper text-paper text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
+              {cartCount}
+            </span>
+          )}
+        </motion.button>
 
         {/* Logout Button */}
-        <button 
+        <motion.button 
+          whileTap={{ scale: 0.95 }}
           onClick={handleLogout}
-          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:-translate-y-1 hover:shadow-brutal hover:bg-neon-pink group transition-all"
+          className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors"
           aria-label="Logout"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink group-hover:text-paper">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
             <polyline points="16 17 21 12 16 7"></polyline>
             <line x1="21" y1="12" x2="9" y2="12"></line>
           </svg>
-        </button>
+        </motion.button>
       </div>
     </header>
     <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />

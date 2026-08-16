@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState, AppDispatch } from '../app/store';
+import { register } from '../features/authSlice';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card } from '../components/ui/Card';
@@ -11,7 +13,8 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const { register, isLoading } = useAuth();
+  const { isLoading } = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const validate = () => {
@@ -29,8 +32,12 @@ const Register: React.FC = () => {
     if (!validate()) return;
     
     try {
-      await register(name, email, password);
-      navigate('/home');
+      const resultAction = await dispatch(register({name, email, password}));
+      if (register.fulfilled.match(resultAction)) {
+        navigate('/home');
+      } else {
+        setErrors({ form: resultAction.error.message || 'Registration failed' });
+      }
     } catch (err) {
       setErrors({ form: err instanceof Error ? err.message : 'Registration failed' });
     }

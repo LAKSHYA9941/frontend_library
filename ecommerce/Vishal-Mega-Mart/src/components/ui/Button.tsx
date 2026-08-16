@@ -1,32 +1,37 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import type { HTMLMotionProps } from 'framer-motion';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'danger';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, 'ref'> {
   variant?: ButtonVariant;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ 
   children, 
   variant = 'primary', 
   className = '', 
   ...props 
-}) => {
-  const baseStyles = "uppercase font-bold tracking-wide border-3 border-ink px-6 py-3 transition-all duration-200";
+}, ref) => {
+  const baseStyles = "uppercase font-bold tracking-wide border-2 border-ink px-6 py-3 transition-colors duration-200 flex items-center justify-center";
   
   const variantStyles = {
-    primary: "bg-lemon text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    secondary: "bg-neon-blue text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    outline: "bg-transparent text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
-    danger: "bg-neon-pink text-ink shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-brutal-lg active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+    primary: "bg-ink text-paper hover:bg-paper hover:text-ink shadow-brutal",
+    secondary: "bg-gray-200 dark:bg-gray-800 text-ink hover:bg-ink hover:text-paper shadow-brutal",
+    outline: "bg-transparent text-ink hover:bg-ink hover:text-paper shadow-brutal",
+    danger: "bg-red-600 text-white hover:bg-white hover:text-red-600 shadow-brutal border-red-600 hover:border-red-600",
   };
 
   return (
-    <button 
+    <motion.button 
+      ref={ref}
+      whileTap={{ scale: 0.98 }}
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       {...props}
     >
       {children}
-    </button>
+    </motion.button>
   );
-};
+});
+Button.displayName = 'Button';

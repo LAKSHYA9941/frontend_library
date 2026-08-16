@@ -16,12 +16,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <input
           ref={ref}
-          className={`w-full border-3 border-ink bg-paper px-4 py-3 text-ink rounded-none 
-            focus:outline-none focus:ring-0 focus:border-neon-blue focus:shadow-brutal 
-            transition-all duration-200 ${error ? 'border-neon-pink' : ''} ${className}`}
+          className={`w-full border-2 border-ink bg-paper px-4 py-3 text-ink rounded-none 
+            focus:outline-none focus:ring-0 focus:shadow-brutal 
+            transition-all duration-200 ${error ? 'border-red-600' : ''} ${className}`}
           {...props}
         />
-        {error && <span className="text-neon-pink font-bold text-sm uppercase">{error}</span>}
+        {error && <span className="text-red-600 font-bold text-sm uppercase">{error}</span>}
       </div>
     );
   }

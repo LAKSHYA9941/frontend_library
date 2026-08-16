@@ -9,7 +9,6 @@ interface ProductGridProps {
   onLoadMore: () => void;
   onClearFilters: () => void;
   searchTerm: string;
-  category: string;
 }
 
 export const ProductGrid: React.FC<ProductGridProps> = ({
@@ -17,8 +16,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   hasMore,
   onLoadMore,
   onClearFilters,
-  searchTerm,
-  category
+  searchTerm
 }) => {
   if (products.length === 0) {
     return (
@@ -27,7 +25,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
           Nothing Found!
         </h2>
         <p className="font-bold uppercase tracking-wide text-lg mb-8 max-w-2xl mx-auto">
-          Your search for "{searchTerm}" in {category} didn't match any brutal deals. Let's start fresh.
+          Your search for "{searchTerm}" didn't match any brutal deals. Let's start fresh.
         </p>
         <Button variant="outline" className="bg-paper text-ink hover:bg-ink hover:text-paper border-ink" onClick={onClearFilters}>
           Clear Filters

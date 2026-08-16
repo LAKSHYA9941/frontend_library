@@ -2,10 +2,11 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { useAuth } from '../../context/AuthContext';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../app/store';
 
 const MainLayout: React.FC = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
